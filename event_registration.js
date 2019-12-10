@@ -13,7 +13,7 @@ var costPerTicket = 5.00;
 var ticketSurcharge = 0.50;
 
 /*** YOUR CODE STARTS BELOW HERE ***/
-
+var error;
 
 //Timer Countdown
 
@@ -60,7 +60,7 @@ function calculateTotal() {
     //parse numbers entered
     var x = parseInt(document.forms["contact"]["numTickets"].value, 10);
     //console.log('x is =>', x);
-    var error;
+    //var error;
 
     /*Verify only numbers are entered*/
     if (isNaN(x)) {
@@ -146,7 +146,7 @@ function AllLetter(name) {
     if (name.match(letters)) {
         error= false;
         errorColor('name', error);
-        document.getElementById("msgname").innerHTML = "";
+        document.getElementById("msgname").innerHTML = '';
         return true;
     }
     else {
@@ -163,7 +163,7 @@ function ValidateEmail(email) {
     if (email.match(mailformat)) {
         error = false;
         errorColor('email', error);
-        document.getElementById("msgemail").innerHTML = "";
+        document.getElementById("msgemail").innerHTML = '';
         return true;
     }
     else {
