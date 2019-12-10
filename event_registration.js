@@ -112,36 +112,7 @@ function errorColor(String, error) {
     }
 }
 
-/*Perform validation to make sure the user entered in a value for both name and email.
-Add an error message next to the input field when either a name or email has not been entered and change the background color of the input field to help alert the user.
-*/
 
-//check for a valid name entry
-
-function AllLetter(name) {
-    var letters = /^[A-Za-z]+$/;
-    if (name.value.match(letters)) {
-        return true;
-    }
-    else {
-        errorColor('name', error);
-        document.getElementById("msgname").innerHTML = "Please make a valid entry.";
-        return false;
-    }
-}
-
-//check for valid email address
-function ValidateEmail(email) {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (email.value.match(mailformat)) {
-        return true;
-    }
-    else {
-        errorColor('email', error);
-        document.getElementById("msgemail").innerHTML = "Please make a valid entry.";
-        return false;
-    }
-}
 
 /*
 (c) If no errors in the input were found, provide an alert to the user thanking them for their purchase with the total amount of the purchase, and stop the timer. Otherwise, allow the user to continue to make changes until they have provided valid information. */
@@ -162,4 +133,43 @@ else {
 }
 
 
+}
+
+/*Perform validation to make sure the user entered in a value for both name and email.
+Add an error message next to the input field when either a name or email has not been entered and change the background color of the input field to help alert the user.
+*/
+
+//check for a valid name entry
+
+function AllLetter(name) {
+    var letters = /^[A-Za-z]+$/;
+    if (name.match(letters)) {
+        error= false;
+        errorColor('name', error);
+        document.getElementById("msgname").innerHTML = "";
+        return true;
+    }
+    else {
+        error= true;
+        errorColor('name', error);
+        document.getElementById("msgname").innerHTML = "Please make a valid entry.";
+        return false;
+    }
+}
+
+//check for valid email address
+function ValidateEmail(email) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (email.match(mailformat)) {
+        error = false;
+        errorColor('email', error);
+        document.getElementById("msgemail").innerHTML = "";
+        return true;
+    }
+    else {
+        error = true;
+        errorColor('email', error);
+        document.getElementById("msgemail").innerHTML = "Please make a valid entry.";
+        return false;
+    }
 }
