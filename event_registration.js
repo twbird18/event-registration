@@ -172,7 +172,7 @@ var name = document.getElementById("contact").name;
     }
 else {
     console.log("Correct");
-    return true;
+    return false;
 }
 
 
