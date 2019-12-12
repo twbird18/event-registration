@@ -111,22 +111,65 @@ function errorColor(String, error) {
         document.getElementById(String).style.backgroundColor = 'grey';
     }
 }
+/*
+function completePurchase() {
+
+    var name = document.getElementById("contact").name;
+    var email = document.getElementById("contact").email;
+       if (AllLetter(name) &&
+        ValidateEmail(email)) {
+            
+        return true;
+    }
+
+    else {
+       
+        return false;
+
+    }
+}
+
+//verify only alphabet is used
+function AllLetter(name) {
+    var letters = /^[A-Za-z\s]+$/;
+    if (name.value.match(letters)) {
+        return true;
+    }
+    else {
+        alert('Please input alphabet characters only');
+        return false;
+    }
+}
 
 
+//validate email address
+function ValidateEmail(email)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+if(email.value.match(mailformat))
+{
+return true;
+}
+else
+{
+alert("Please enter a valid email address!");
+email.focus();
+return false;
+}
+}*/
 
 /*
-(c) If no errors in the input were found, provide an alert to the user thanking them for their purchase with the total amount of the purchase, and stop the timer. Otherwise, allow the user to continue to make changes until they have provided valid information. */
-
+(c) If no errors in the input were found, provide an alert to the user thanking them for their purchase with the total amount of the purchase, and stop the timer. Otherwise, allow the user to continue to make changes until they have provided valid information. 
+*/
+ 
 function completePurchase(){
-
-var name = document.getElementById("name").innerHTML;
-var email = document.getElementById("email").innerHTML;
-
-if (AllLetter(name) && ValidateEmail(email)) {
-
-    return false;
-
-}
+var name = document.getElementById("contact").name;
+    var email = document.getElementById("contact").email;
+       if (AllLetter(name) &&
+        ValidateEmail(email)) {
+            
+        return true;
+    }
 else {
     console.log("Correct");
     return true;
@@ -143,7 +186,7 @@ Add an error message next to the input field when either a name or email has not
 
 function AllLetter(name) {
     var letters = /^[A-Za-z]+$/;
-    if (name.match(letters)) {
+    if (name.value.match(letters)) {
         error= false;
         errorColor('name', error);
         document.getElementById("msgname").innerHTML = '';
@@ -160,7 +203,7 @@ function AllLetter(name) {
 //check for valid email address
 function ValidateEmail(email) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (email.match(mailformat)) {
+    if (email.value.match(mailformat)) {
         error = false;
         errorColor('email', error);
         document.getElementById("msgemail").innerHTML = '';
